@@ -158,14 +158,16 @@ components.html(
                     window.voiceflow.chat.load({
                         verify: { projectID: '67626ec66132603bff4421b3' },
                         url: 'https://general-runtime.voiceflow.com',
-                        versionID: 'production'
+                        versionID: 'production',
+                        settings: { compactMode: true } // 启用紧凑模式
                     });
                 }
                 v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
                 v.type = "text/javascript"; 
                 s.parentNode.insertBefore(v, s);
             })(document, 'script');
-        </script>
+</script>
+
     </body>
     </html>
     """,
