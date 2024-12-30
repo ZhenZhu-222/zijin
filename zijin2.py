@@ -1,6 +1,6 @@
 import streamlit as st
-import streamlit as st
 import streamlit.components.v1 as components
+
 # 设置页面标题和图标
 st.set_page_config(
     page_title="浪漫相遇",
@@ -44,82 +44,19 @@ st.markdown(
         animation: animate 25s linear infinite;
         bottom: -150px;
     }
-    .bubbles li:nth-child(1) {
-        left: 25%;
-        width: 80px;
-        height: 80px;
-        animation-delay: 0s;
-    }
-    .bubbles li:nth-child(2) {
-        left: 10%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 2s;
-        animation-duration: 12s;
-    }
-    .bubbles li:nth-child(3) {
-        left: 70%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 4s;
-    }
-    .bubbles li:nth-child(4) {
-        left: 40%;
-        width: 60px;
-        height: 60px;
-        animation-delay: 0s;
-        animation-duration: 18s;
-    }
-    .bubbles li:nth-child(5) {
-        left: 65%;
-        width: 20px;
-        height: 20px;
-        animation-delay: 0s;
-    }
-    .bubbles li:nth-child(6) {
-        left: 75%;
-        width: 110px;
-        height: 110px;
-        animation-delay: 3s;
-    }
-    .bubbles li:nth-child(7) {
-        left: 35%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 7s;
-    }
-    .bubbles li:nth-child(8) {
-        left: 50%;
-        width: 25px;
-        height: 25px;
-        animation-delay: 15s;
-        animation-duration: 45s;
-    }
-    .bubbles li:nth-child(9) {
-        left: 20%;
-        width: 15px;
-        height: 15px;
-        animation-delay: 2s;
-        animation-duration: 35s;
-    }
-    .bubbles li:nth-child(10) {
-        left: 85%;
-        width: 150px;
-        height: 150px;
-        animation-delay: 0s;
-        animation-duration: 11s;
-    }
+    .bubbles li:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-delay: 0s; }
+    .bubbles li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-delay: 2s; animation-duration: 12s; }
+    .bubbles li:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-delay: 4s; }
+    .bubbles li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-delay: 0s; animation-duration: 18s; }
+    .bubbles li:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-delay: 0s; }
+    .bubbles li:nth-child(6) { left: 75%; width: 110px; height: 110px; animation-delay: 3s; }
+    .bubbles li:nth-child(7) { left: 35%; width: 150px; height: 150px; animation-delay: 7s; }
+    .bubbles li:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-delay: 15s; animation-duration: 45s; }
+    .bubbles li:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-delay: 2s; animation-duration: 35s; }
+    .bubbles li:nth-child(10) { left: 85%; width: 150px; height: 150px; animation-delay: 0s; animation-duration: 11s; }
     @keyframes animate {
-        0% {
-            transform: translateY(0) rotate(0deg);
-            opacity: 1;
-            border-radius: 0;
-        }
-        100% {
-            transform: translateY(-1000px) rotate(720deg);
-            opacity: 0;
-            border-radius: 50%;
-        }
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; border-radius: 0; }
+        100% { transform: translateY(-1000px) rotate(720deg); opacity: 0; border-radius: 50%; }
     }
     /* 文字内容 */
     .header {
@@ -170,31 +107,6 @@ st.markdown(
         position: relative;
         z-index: 1;
     }
-    /* 滚动图片 */
-    .scrolling-images {
-        display: flex;
-        overflow: hidden;
-        white-space: nowrap;
-        margin-top: 50px;
-        position: relative;
-        z-index: 1;
-    }
-    .scrolling-images img {
-        height: 150px;
-        margin: 0 20px;
-        animation: scroll-left 20s linear infinite;
-    }
-    .scrolling-images.reverse img {
-        animation: scroll-right 20s linear infinite;
-    }
-    @keyframes scroll-left {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-    }
-    @keyframes scroll-right {
-        0% { transform: translateX(-100%); }
-        100% { transform: translateX(100%); }
-    }
     </style>
     """,
     unsafe_allow_html=True,
@@ -219,7 +131,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# 网页内容
+# 页面内容
 st.markdown('<div class="header">💘 浪漫相遇 💘</div>', unsafe_allow_html=True)
 st.markdown('<div class="subheader">在这里，遇见你的另一半</div>', unsafe_allow_html=True)
 st.markdown(
@@ -227,6 +139,7 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.markdown('<div class="heart">❤️</div>', unsafe_allow_html=True)
+
 # 插入 Voiceflow 聊天插件
 components.html(
     """
@@ -235,10 +148,8 @@ components.html(
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>浪漫相遇</title>
     </head>
     <body>
-        <h2 style="text-align: center; color: #ff6f61;">聊天助手 💬</h2>
         <!-- Voiceflow 插件 -->
         <script type="text/javascript">
             (function(d, t) {
@@ -260,33 +171,6 @@ components.html(
     """,
     height=800,
 )
-# 三行滚动图片
-st.markdown(
-    """
-    <div class="scrolling-images">
-        <img src="https://i.imgur.com/1.jpg" alt="Image 1">
-        <img src="https://i.imgur.com/2.jpg" alt="Image 2">
-        <img src="https://i.imgur.com/3.jpg" alt="Image 3">
-        <img src="https://i.imgur.com/4.jpg" alt="Image 4">
-        <img src="https://i.imgur.com/5.jpg" alt="Image 5">
-    </div>
-    <div class="scrolling-images reverse">
-        <img src="https://i.imgur.com/6.jpg" alt="Image 6">
-        <img src="https://i.imgur.com/7.jpg" alt="Image 7">
-        <img src="https://i.imgur.com/8.jpg" alt="Image 8">
-        <img src="https://i.imgur.com/9.jpg" alt="Image 9">
-        <img src="https://i.imgur.com/10.jpg" alt="Image 10">
-    </div>
-    <div class="scrolling-images">
-        <img src="https://i.imgur.com/11.jpg" alt="Image 11">
-        <img src="https://i.imgur.com/12.jpg" alt="Image 12">
-        <img src="https://i.imgur.com/13.jpg" alt="Image 13">
-        <img src="https://i.imgur.com/14.jpg" alt="Image 14">
-        <img src="https://i.imgur.com/15.jpg" alt="Image 15">
-    </div>
-    """,
-    unsafe_allow_html=True,
-)
 
 # 页脚
 st.markdown(
@@ -299,26 +183,6 @@ st.markdown(
     """
     <iframe src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1&loop=1&controls=0&mute=1" 
             width="0" height="0" frameborder="0" allow="autoplay"></iframe>
-    """,
-    unsafe_allow_html=True,
-)
-
-# 插入Voiceflow聊天插件
-st.markdown(
-    """
-    <script type="text/javascript">
-        (function(d, t) {
-            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-            v.onload = function() {
-                window.voiceflow.chat.load({
-                    verify: { projectID: '67626ec66132603bff4421b3' },
-                    url: 'https://general-runtime.voiceflow.com',
-                    versionID: 'production'
-                });
-            }
-            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-        })(document, 'script');
-    </script>
     """,
     unsafe_allow_html=True,
 )
