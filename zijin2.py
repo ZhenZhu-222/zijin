@@ -1,5 +1,6 @@
 import streamlit as st
-
+import streamlit as st
+import streamlit.components.v1 as components
 # 设置页面标题和图标
 st.set_page_config(
     page_title="浪漫相遇",
@@ -226,7 +227,39 @@ st.markdown(
     unsafe_allow_html=True,
 )
 st.markdown('<div class="heart">❤️</div>', unsafe_allow_html=True)
-
+# 插入 Voiceflow 聊天插件
+components.html(
+    """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>浪漫相遇</title>
+    </head>
+    <body>
+        <h2 style="text-align: center; color: #ff6f61;">聊天助手 💬</h2>
+        <!-- Voiceflow 插件 -->
+        <script type="text/javascript">
+            (function(d, t) {
+                var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                v.onload = function() {
+                    window.voiceflow.chat.load({
+                        verify: { projectID: '67626ec66132603bff4421b3' },
+                        url: 'https://general-runtime.voiceflow.com',
+                        versionID: 'production'
+                    });
+                }
+                v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; 
+                v.type = "text/javascript"; 
+                s.parentNode.insertBefore(v, s);
+            })(document, 'script');
+        </script>
+    </body>
+    </html>
+    """,
+    height=800,
+)
 # 三行滚动图片
 st.markdown(
     """
@@ -266,6 +299,26 @@ st.markdown(
     """
     <iframe src="https://www.youtube.com/embed/5qap5aO4i9A?autoplay=1&loop=1&controls=0&mute=1" 
             width="0" height="0" frameborder="0" allow="autoplay"></iframe>
+    """,
+    unsafe_allow_html=True,
+)
+
+# 插入Voiceflow聊天插件
+st.markdown(
+    """
+    <script type="text/javascript">
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+                window.voiceflow.chat.load({
+                    verify: { projectID: '67626ec66132603bff4421b3' },
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'production'
+                });
+            }
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
     """,
     unsafe_allow_html=True,
 )
